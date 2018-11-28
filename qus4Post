@@ -1,0 +1,41 @@
+var request = require('request');
+
+var assert = require('assert');
+
+var headers = {
+
+    'User-Agent':       'Super Agent/0.0.1',
+
+    'Content-Type':     'application/json'
+
+}
+
+
+
+var options = {
+
+    url: 'https://jsonplaceholder.typicode.com/posts/',
+
+    method: 'POST',
+
+   headers: headers,
+
+    form: { "userId": 1,
+
+   "title": "foo",
+
+   "body": "bar" }
+
+}
+
+
+request(options, function (error, response, body) {
+
+    var json = JSON.parse(body);
+
+    assert(response.statusCode == 201);
+
+    assert(json.id == 101);
+console.log('assertion sucess');
+
+})
