@@ -1,0 +1,29 @@
+
+var headers = {
+
+    'User-Agent':       'Super Agent/0.0.1',
+
+    'Content-Type':     'application/json'
+
+}
+
+var options = {
+
+    url: 'https://jsonplaceholder.typicode.com/posts/1',
+
+    method: 'GET',
+    json: true,
+
+    headers: headers,
+
+}
+
+request(options, function (error, response, body) {
+
+    assert(response.statusCode == 200);
+
+    assert(body.userId == 1);
+    
+    console.log('Verification success');
+
+})
