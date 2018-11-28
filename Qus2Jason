@@ -1,0 +1,13 @@
+var fs = require('fs');
+var jsonxml = require('jsontoxml');
+
+fs.readFile('test.json', 'utf-8', function (err, data){
+    if(err) console.log(err);
+    console.log(data);
+    var jsonContent = JSON.parse(data);
+    jsonContent.name = "wipro ltd";
+    var xml = jsonxml(jsonContent);
+fs.writeFile('newxml.xml',xml,function(err,data){
+    console.log(xml);
+});
+});
